@@ -1,11 +1,18 @@
 const {Server} = require("socket.io")
 
-const io = new Server(8000,{
-    //basically frontend localhost->5173 pei chalra hai and backend->8000 pei 
-    //so browser security poin of view sey allow nahi karta hai thats why use cors
-    //CORS (Cross-Origin Resource Sharing)
-    cors:true,
-});
+// const io = new Server(8000,{
+//     //basically frontend localhost->5173 pei chalra hai and backend->8000 pei 
+//     //so browser security poin of view sey allow nahi karta hai thats why use cors
+//     //CORS (Cross-Origin Resource Sharing)
+//     cors:true,
+// });
+const io = new Server(8000, {
+    cors: {
+      origin: "https://video-call-mern.onrender.com/", // Add your frontend URL here
+      methods: ["GET", "POST"]
+    }
+  });
+  
 
 //hamey track rakhna hoga konsi id kis room mei hai
 const emailToSocketIdMap = new Map();

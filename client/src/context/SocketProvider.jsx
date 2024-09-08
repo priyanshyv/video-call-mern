@@ -15,7 +15,7 @@ export const useSocket = () => {
 //waha use socket likhenge and we are good to go
 
 export const SocketProvide = (props) => {
-    const socket = useMemo(()=>io('localhost:8000'),[])
+    const socket = useMemo(()=>io('https://video-call-mern.onrender.com/'),[])
     return (
         <SocketContext.Provider value={socket}>
             {props.children}
