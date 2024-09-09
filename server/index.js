@@ -2,7 +2,7 @@ const express = require('express');
 const http = require('http');
 const { Server } = require("socket.io");
 const app = express();
-const port = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8000;
 
 // const io = new Server(8000,{
 //     //basically frontend localhost->5173 pei chalra hai and backend->8000 pei 
@@ -65,3 +65,6 @@ io.on("connection",(socket)=>{
         })
    
 });
+server.listen(PORT, () => {
+    console.log(`Server listening on port ${PORT}`);
+  });
