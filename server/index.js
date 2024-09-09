@@ -1,4 +1,8 @@
-const {Server} = require("socket.io")
+const express = require('express');
+const http = require('http');
+const { Server } = require("socket.io");
+const app = express();
+const port = process.env.PORT || 8000;
 
 // const io = new Server(8000,{
 //     //basically frontend localhost->5173 pei chalra hai and backend->8000 pei 
@@ -6,10 +10,13 @@ const {Server} = require("socket.io")
 //     //CORS (Cross-Origin Resource Sharing)
 //     cors:true,
 // });
-const io = new Server(8000, {
+
+const server = http.createServer(app);
+const io = new Server(server, {
     cors: {
-      origin: "https://video-call-mern-front.onrender.com/", // Add your frontend URL here
-      methods: ["GET", "POST"]
+      origin: "https://video-call-mern-front.onrender.com",
+      methods: ["GET", "POST"],
+      credentials: true,
     }
   });
   
