@@ -8,7 +8,7 @@ const {Server} = require("socket.io")
 // });
 const io = new Server(8000, {
     cors: {
-      origin: "https://video-call-mern.onrender.com/", // Add your frontend URL here
+      origin: "https://video-call-mern-front.onrender.com/", // Add your frontend URL here
       methods: ["GET", "POST"]
     }
   });
